@@ -3,9 +3,10 @@
 namespace ds {
 
     void Stack::resize(size_t new_capacity) {
-    int64_t* new_elements = new int64_t[(new_capacity >= capacity_) ?
-    capacity_ * 2 : capacity_ / 2];
-
+    // int64_t* new_elements = new int64_t[(new_capacity >= capacity_) ?
+    // capacity_ * 2 : capacity_ / 2];
+    if(new_capacity <= 10) {new_capacity = 10;}
+    int64_t* new_elements = new int64_t[new_capacity];
     for(size_t i(0); i < size_; i++) {
       new_elements[i] = element_[i];
     }
@@ -18,24 +19,22 @@ namespace ds {
 
  void Stack::push(int64_t d) {
   if(size_ == capacity_) {
-    resize(capacity_);
+    resize(capacity_ * 2);
   }
 
-  for(size_t i(0); i > size_; i++) {
-    if(i = 0) {
-      element_[i] = d;
-    }
-    else {element_[i+1] = element_[i]; }
-  }
-  size_++;
+  element_[size_] = d;
+
+  ++size_;
 }
 
    int64_t Stack::pop() {
-     if(capacity_ > 4 * size_) {
-       resize(size_);
+
+    --size_;
+    int64_t result = element_[size_];
+    if (size_ <= capacity_ / 4 && capacity_ > 10) {
+        resize(capacity_ / 2);
     }
-    int64_t result = element_[0];
-    size_--;
+
     return result;
 }
 
