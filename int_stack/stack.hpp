@@ -10,10 +10,10 @@ namespace ds {
 
   class Stack {
   public:
-    Stack() = default;
+    Stack() : size_(0), capacity_(10), element_(new int64_t[10]) {};
     ~Stack(){delete[] element_;};
     Stack(size_t size, size_t capacity, int64_t* element) :
-      size_(size), capacity_(capacity = 10), element_(element) {};
+      size_(size), capacity_(capacity), element_(element) {};
 
     void push(int64_t d);
     int64_t pop();
