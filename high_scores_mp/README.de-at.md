@@ -1,7 +1,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 [![de-at](https://img.shields.io/badge/lang-de--at-green.svg)](README.de-at.md)
 
-
+  
 # High Scores für mehrere Spieler
 
 Nach Abschluss der Aufgaben können die folgenden Befehle ausgeführt werden,
@@ -44,8 +44,7 @@ Das untenstehende Klassendiagramm beschreibt die Klasse am Besten:
 classDiagram
 
 class HighScores {
-  + HighScores()
-  + HighScores(std::vector< std::pair< std::string, uint32_t >> scores)
+  + HighScores()igvector< std::pair< std::string, uint32_t >> scores)
   + scores() std::map< std::string, std::vector< uint32_t>>
   + scores(std::string player) std::vector< uint32_t>
   + add_score(std::string player, uint32_t score)
